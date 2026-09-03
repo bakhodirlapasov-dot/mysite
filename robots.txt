@@ -1,0 +1,11 @@
+# Barcha qidiruv tizimlariga ruxsat
+User-agent: *
+Allow: /
+
+# Saytda ko'rsatilishi shart bo'lmagan yordamchi fayllar
+Disallow: /apps-script.gs
+Disallow: /RASMLAR-HAQIDA.txt
+Disallow: /versiya.sh
+
+# Sayt xaritasi
+Sitemap: https://zerocoder.netlify.app/sitemap.xml

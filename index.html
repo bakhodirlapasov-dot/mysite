@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google Search Console tasdiqlash tegi — o‘chirmang -->
+<meta name="google-site-verification" content="Xj78XHPhGC28oSruCdBbS9yHddhr2oGLmV0oPXQ_y18">
+
+<title>Bahodir Lapasov — NoCode avtomatizatsiya | AppSheet, Google Sheets, Apps Script</title>
+<meta name="description" content="Toshkentda biznes jarayonlarini avtomatlashtiraman. Google Sheets, AppSheet va Apps Script asosida ombor, savdo, davomat va hisobot tizimlari. 6 yillik tajriba.">
+<link rel="canonical" href="https://zerocoder.netlify.app/">
+
+<!-- Ijtimoiy tarmoqlarda ulashilganda ko‘rinadigan kartochka -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uz_UZ">
+<meta property="og:site_name" content="Bahodir Lapasov">
+<meta property="og:url" content="https://zerocoder.netlify.app/">
+<meta property="og:title" content="Bahodir Lapasov — NoCode avtomatizatsiya">
+<meta property="og:description" content="Google Sheets, AppSheet va Apps Script asosida biznesingiz uchun individual tizimlar. 6 yillik tajriba, Toshkent.">
+<meta property="og:image" content="https://zerocoder.netlify.app/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bahodir Lapasov — NoCode avtomatizatsiya mutaxassisi">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eff1fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0f16" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=51">
+<link rel="preload" as="image" href="images/bahodir-fonsiz.webp" fetchpriority="high">
+<!-- Sahifa chizilishidan oldin mavzu qo‘llanishi uchun script shu yerda turadi
+     (aks holda ochilishda bir lahza noto‘g‘ri rang "chaqnab" ketadi) -->
+<script src="script.js?v=51"></script>
+
+<!-- Qidiruv tizimlari uchun tuzilmali ma’lumot -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Bahodir Lapasov — NoCode avtomatizatsiya",
+  "description": "Google Sheets, AppSheet va Apps Script asosida bizneslar uchun individual tizimlar, jarayonlarni avtomatlashtirish va optimizatsiya.",
+  "url": "https://zerocoder.netlify.app/",
+  "image": "https://zerocoder.netlify.app/images/og.jpg",
+  "telephone": "+998332973030",
+  "areaServed": "UZ",
+  "address": { "@type": "PostalAddress", "addressLocality": "Toshkent", "addressCountry": "UZ" },
+  "founder": {
+    "@type": "Person",
+    "name": "Bahodir Lapasov",
+    "jobTitle": "NoCode avtomatizatsiya mutaxassisi",
+    "sameAs": ["https://t.me/bahodirlapasovapp"]
+  },
+  "knowsAbout": ["Google Sheets", "AppSheet", "Google Apps Script", "Biznes jarayonlarini avtomatlashtirish"]
+}
+</script>
+</head>
+<body>
+
+  <a class="otkazish" href="#asosiy">Asosiy qismga o‘tish</a>
+
+  <!-- ======================= NAVIGATSIYA ======================= -->
+  <header class="nav">
+    <div class="wrap nav-ichi">
+
+      <a class="nav-logo" href="#hero">
+        <svg class="nav-belgi" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 6l6 10-6 10-6-10z"/>
+          <path d="M18 6l6 10-6 10-6-10z" opacity=".65"/>
+        </svg>
+        <span class="nav-ism">BAHODIR LAPASOV</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Asosiy menyu">
+        <a class="faol" href="#hero" aria-current="true"><span class="nuqta" aria-hidden="true"></span>Bosh sahifa</a>
+        <a href="#xizmatlar"><span class="nuqta" aria-hidden="true"></span>Xizmatlar</a>
+        <a href="#jarayon"><span class="nuqta" aria-hidden="true"></span>Jarayon</a>
+        <a href="#loyihalar"><span class="nuqta" aria-hidden="true"></span>Loyihalar</a>
+        <a href="#fikrlar"><span class="nuqta" aria-hidden="true"></span>Fikrlar</a>
+      </nav>
+
+      <div class="nav-ong">
+        <a class="nav-cta" href="#aloqa">Bog‘lanish
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+
+        <button class="mavzu-tugma" id="mavzu-tugma" type="button" aria-label="Mavzuni almashtirish" title="Mavzuni almashtirish">
+          <svg class="ikon-quyosh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="ikon-oy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="asosiy">
+
+    <!-- ========================= HERO ========================= -->
+    <section class="hero" id="hero">
+      <div class="wrap hero-ichi">
+
+        <div class="hero-matn">
+          <h1><span>Bahodir</span> <span>Lapasov</span></h1>
+
+          <p class="role">NoCode Avtomatizatsiya</p>
+
+          <p class="vada">Google Sheets, AppSheet va Apps Script asosida biznesingizdagi
+             qo‘l ishlarini tizimga aylantiraman — hisobot, ombor, davomat va to‘lovlar
+             o‘zi ishlaydigan bo‘ladi.</p>
+
+          <a class="btn-qora" href="#aloqa">Bepul konsultatsiya
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+
+          <div class="hero-past">
+            <div class="statlar">
+              <div class="stat">
+                <strong>6+</strong>
+                <span>yillik tajriba</span>
+              </div>
+
+              <div class="stat">
+                <strong>20+</strong>
+                <span>loyiha</span>
+              </div>
+
+              <div class="stat">
+                <strong>10+</strong>
+                <span>biznes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RASM: fonsiz (shaffof) PNG — blobning ustida turadi -->
+        <figure class="hero-rasm rasm-joy" data-placeholder="Rasm shu yerga">
+          <span class="blob" aria-hidden="true"></span>
+          <img src="images/bahodir-fonsiz.webp" alt="Bahodir Lapasov — NoCode avtomatizatsiya mutaxassisi"
+               width="640" height="640" fetchpriority="high" decoding="async">
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ==================== MIJOZLAR LENTASI ==================== -->
+    <div class="lenta">
+      <div class="wrap lenta-ichi">
+        <img src="images/loyiha-1.webp" alt="MacPlus logotipi" width="640" height="640" loading="lazy" decoding="async">
+        <img src="images/loyiha-2.webp" alt="Colba Maktabi logotipi" width="640" height="640" loading="lazy" decoding="async">
+        <img src="images/loyiha-3.webp" alt="Yuksalish Maktabi logotipi" width="640" height="640" loading="lazy" decoding="async">
+        <img src="images/loyiha-4.webp" alt="Target International School logotipi" width="640" height="640" loading="lazy" decoding="async">
+        <img src="images/loyiha-5.webp" alt="Noor International School logotipi" width="640" height="640" loading="lazy" decoding="async">
+        <img src="images/loyiha-6.webp" alt="Uzcolor Premium Paints logotipi" width="640" height="640" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <!-- ======================= XIZMATLAR ======================= -->
+    <section class="bolim" id="xizmatlar">
+      <div class="wrap">
+        <p class="bolim-yorliq">Xizmatlar</p>
+        <h2>Qo‘l mehnatini tizimga aylantiraman</h2>
+
+        <div class="setka setka-3">
+
+          <article class="karta">
+            <div class="ikon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3>Individual dasturlar</h3>
+            <p>Google Sheets, AppSheet va Apps Script asosida biznesingizning o‘ziga xos jarayoniga moslangan dastur quraman — tayyor shablon emas.</p>
+          </article>
+
+          <article class="karta">
+            <div class="ikon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Jarayonlarni avtomatlashtirish</h3>
+            <p>Qo‘lda bajariladigan takroriy ishlarni — hisobot, xabarnoma, ma’lumot kiritish — avtomatik ishlaydigan qilib sozlayman.</p>
+          </article>
+
+          <article class="karta">
+            <div class="ikon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg>
+            </div>
+            <h3>Optimizatsiya</h3>
+            <p>Mavjud tizimingizni ko‘rib chiqib, ortiqcha qadamlarni olib tashlayman va ishlash tezligini oshiraman.</p>
+          </article>
+
+          <article class="karta">
+            <div class="ikon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+            </div>
+            <h3>Ma’lumotlar tartibi</h3>
+            <p>Tarqoq fayllardagi ma’lumotlarni bitta tizimga yig‘ib, ishonchli va qidiriladigan bazaga aylantiraman.</p>
+          </article>
+
+          <article class="karta">
+            <div class="ikon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            </div>
+            <h3>Mobil ilovalar</h3>
+            <p>AppSheet orqali xodimlaringiz telefonidan ishlaydigan ilova — omborxona, tashrif, hisobot uchun.</p>
+          </article>
+
+          <article class="karta">
+            <div class="ikon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3>Qo‘llab-quvvatlash</h3>
+            <p>Tizim ishga tushgandan keyin ham yoningizdaman: o‘qitish, o‘zgartirish va texnik yordam.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= JARAYON ======================= -->
+    <section class="bolim bolim-alt" id="jarayon">
+      <div class="wrap">
+        <p class="bolim-yorliq">Jarayon</p>
+        <h2>Ish qanday boshlanadi</h2>
+
+        <ol class="qadamlar">
+          <li class="qadam">
+            <span class="qadam-raqam">01</span>
+            <h3>Tanishuv suhbati</h3>
+            <p>30 daqiqalik qo‘ng‘iroq — bepul. Biznesingizda qaysi ish ko‘p vaqt olayotganini aniqlaymiz va avtomatlashtirish mantiqiy yoki yo‘qligini ochiq aytaman.</p>
+          </li>
+          <li class="qadam">
+            <span class="qadam-raqam">02</span>
+            <h3>Jarayonni o‘rganish</h3>
+            <p>Hozirgi ish tartibini kuzataman: qanday fayllar, kim nima kiritadi, qayerda xato chiqadi. Shundan keyin aniq taklif va muddat beraman.</p>
+            <p class="narx">Loyihalar <strong>6 mln so‘m</strong>dan boshlanadi</p>
+          </li>
+          <li class="qadam">
+            <span class="qadam-raqam">03</span>
+            <h3>Tizimni qurish</h3>
+            <p>Bosqichma-bosqich ishlab chiqaman va har haftada ko‘rsatib boraman. Siz yo‘l-yo‘lakay ko‘rib turasiz — oxirida “kutganimdek chiqmadi” degan holat bo‘lmaydi.</p>
+          </li>
+          <li class="qadam">
+            <span class="qadam-raqam">04</span>
+            <h3>Ishga tushirish va o‘qitish</h3>
+            <p>Xodimlarni o‘rgataman, qo‘llanma qoldiraman. Keyin ham bog‘lanishingiz mumkin: o‘zgartirish va texnik yordam davom etadi.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================= LOYIHALAR ======================= -->
+    <section class="bolim" id="loyihalar">
+      <div class="wrap">
+        <p class="bolim-yorliq">Portfolio</p>
+        <h2>Loyihalarim</h2>
+
+        <div class="setka setka-3">
+
+          <article class="karta karta-loyiha">
+            <figure class="loyiha-rasm rasm-joy" data-placeholder="images/loyiha-1.jpg">
+              <img src="images/loyiha-1.webp" alt="MacPlus loyihasi" width="640" height="640" loading="lazy" decoding="async">
+            </figure>
+            <div class="karta-matn">
+              <h3>MacPlus</h3>
+              <p>Sotuv va ombor hisobi alohida fayllarda yuritilardi, qoldiq har kuni qo‘lda solishtirilardi. Hammasini bitta tizimga yig‘dim: mahsulot qoldig‘i, kirim-chiqim va sotuvchilar natijasi real vaqtda ko‘rinadi.</p>
+              <p class="natija"><span class="natija-belgi" aria-hidden="true">↗</span>Kunlik hisobot tayyorlash 2 soatdan 10 daqiqaga tushdi.</p>
+            </div>
+          </article>
+
+          <article class="karta karta-loyiha">
+            <figure class="loyiha-rasm rasm-joy" data-placeholder="images/loyiha-2.jpg">
+              <img src="images/loyiha-2.webp" alt="Colba Maktabi loyihasi" width="640" height="640" loading="lazy" decoding="async">
+            </figure>
+            <div class="karta-matn">
+              <h3>Colba Maktabi</h3>
+              <p>O‘quvchilar bazasi, davomat va to‘lovlar uchun AppSheet’da mobil ilova qurdim. O‘qituvchi davomatni telefonidan belgilaydi, to‘lov holati avtomatik hisoblanadi va ota-onalarga xabar boradi.</p>
+              <p class="natija"><span class="natija-belgi" aria-hidden="true">↗</span>Oylik to‘lov hisobotini yig‘ish 3 kundan 1 soatga qisqardi.</p>
+            </div>
+          </article>
+
+          <article class="karta karta-loyiha">
+            <figure class="loyiha-rasm rasm-joy" data-placeholder="images/loyiha-3.jpg">
+              <img src="images/loyiha-3.webp" alt="Yuksalish Maktabi loyihasi" width="640" height="640" loading="lazy" decoding="async">
+            </figure>
+            <div class="karta-matn">
+              <h3>Yuksalish Maktabi</h3>
+              <p>Qabul jarayoni va ichki hisobotlarni avtomatlashtirdim: ariza topshirgan nomzodlar bitta bazaga tushadi, o‘qituvchilar yuklamasi va oylik hisobotlar o‘zi shakllanadi.</p>
+              <p class="natija"><span class="natija-belgi" aria-hidden="true">↗</span>Qabul mavsumida 400+ ariza bir joyda to‘plandi — hech biri yo‘qolmadi.</p>
+            </div>
+          </article>
+
+
+          <article class="karta karta-loyiha">
+            <figure class="loyiha-rasm rasm-joy" data-placeholder="images/loyiha-4.webp">
+              <img src="images/loyiha-4.webp" alt="Target International School loyihasi" width="640" height="640" loading="lazy" decoding="async">
+            </figure>
+            <div class="karta-matn">
+              <h3>Target International School</h3>
+              <p>Maktabning kundalik jarayonlari — o‘quvchilar bazasi, davomat va to‘lov nazorati — bitta tizimga jamlandi. Ma’muriyat har bir sinf bo‘yicha holatni bitta ekrandan ko‘radi.</p>
+              <p class="natija"><span class="natija-belgi" aria-hidden="true">↗</span>Sinf rahbarlarining hisobotga ketadigan vaqti haftasiga 5 soatga kamaydi.</p>
+            </div>
+          </article>
+
+          <article class="karta karta-loyiha">
+            <figure class="loyiha-rasm rasm-joy" data-placeholder="images/loyiha-5.webp">
+              <img src="images/loyiha-5.webp" alt="Noor International School loyihasi" width="640" height="640" loading="lazy" decoding="async">
+            </figure>
+            <div class="karta-matn">
+              <h3>Noor International School</h3>
+              <p>O‘quv jarayoni va xodimlar hisobini avtomatlashtirdim: dars jadvali, o‘qituvchilar yuklamasi va oylik ish haqi hisob-kitobi bitta tizimda yuritiladi.</p>
+              <p class="natija"><span class="natija-belgi" aria-hidden="true">↗</span>Oylik ish haqi hisob-kitobi 2 kundan yarim kunga qisqardi.</p>
+            </div>
+          </article>
+
+
+          <article class="karta karta-loyiha">
+            <figure class="loyiha-rasm rasm-joy" data-placeholder="images/loyiha-6.webp">
+              <img src="images/loyiha-6.webp" alt="Uzcolor Premium Paints loyihasi" width="640" height="640" loading="lazy" decoding="async">
+            </figure>
+            <div class="karta-matn">
+              <h3>Uzcolor Premium Paints</h3>
+              <p>Ombor va ta’minot bo‘limi uchun individual dastur qurdim: mahsulot qoldig‘i, kirim-chiqim va ta’minot buyurtmalari bitta tizimda yuritiladi.</p>
+              <p class="natija"><span class="natija-belgi" aria-hidden="true">↗</span>Qoldiqni tekshirib buyurtma tayyorlash yarim kundan 20 daqiqaga tushdi.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== FIKRLAR ======================== -->
+
+    <section class="bolim bolim-alt" id="fikrlar">
+      <div class="wrap">
+        <p class="bolim-yorliq">Mijozlar fikri</p>
+        <h2>Ular bilan ishlaganman</h2>
+
+        <div class="setka setka-3">
+
+          <figure class="karta fikr">
+            <div class="yulduzlar" role="img" aria-label="5 balldan 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            </div>
+            <blockquote>Ilgari qoldiqni har kuni qo‘lda solishtirardik, kunlik hisobot uchun ikki soat ketardi. Endi savdo ham, ombor ham bitta joyda — ertalab telefonimdan ochib ko‘raman.</blockquote>
+            <figcaption>
+              <div class="fikr-kim">
+                <strong>Nodirbek Alijonov</strong>
+                <span>Asoschi, MacPlus</span>
+              </div>
+              <img class="fikr-logo" src="images/loyiha-1.webp" alt="MacPlus logotipi"
+                   width="640" height="640" loading="lazy" decoding="async">
+            </figcaption>
+          </figure>
+
+          <figure class="karta fikr">
+            <div class="yulduzlar" role="img" aria-label="5 balldan 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            </div>
+            <blockquote>To‘lovlar bo‘yicha oylik hisobotni yig‘ish uchun uch kun ketardi. Hozir tizim o‘zi hisoblaydi, ota-onalarga xabar ham avtomatik boradi — bu ish bilan alohida odam shug‘ullanmaydi.</blockquote>
+            <figcaption>
+              <div class="fikr-kim">
+                <strong>Doniyor Nasriddinov</strong>
+                <span>Asoschi, Colba Maktabi</span>
+              </div>
+              <img class="fikr-logo" src="images/loyiha-2.webp" alt="Colba Maktabi logotipi"
+                   width="640" height="640" loading="lazy" decoding="async">
+            </figcaption>
+          </figure>
+
+          <figure class="karta fikr">
+            <div class="yulduzlar" role="img" aria-label="5 balldan 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            </div>
+            <blockquote>Qabul mavsumi biz uchun eng tartibsiz davr edi, arizalar turli joyda yotardi. Bahodir qurgan tizimdan keyin hammasi bitta bazaga tushdi — birorta nomzod e’tibordan chetda qolmadi.</blockquote>
+            <figcaption>
+              <div class="fikr-kim">
+                <strong>Muhammadali Eshonqulov</strong>
+                <span>Asoschi, Yuksalish Maktabi</span>
+              </div>
+              <img class="fikr-logo" src="images/loyiha-3.webp" alt="Yuksalish Maktabi logotipi"
+                   width="640" height="640" loading="lazy" decoding="async">
+            </figcaption>
+          </figure>
+
+          <figure class="karta fikr">
+            <div class="yulduzlar" role="img" aria-label="5 balldan 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            </div>
+            <blockquote>Sinf rahbarlari haftaning yarmini hisobot to‘ldirishga sarflardi. Endi ma’lumot o‘zi yig‘iladi, biz esa natijaga qaraymiz.</blockquote>
+            <figcaption>
+              <div class="fikr-kim">
+                <strong>Bekzod Jalilov</strong>
+                <span>Asoschi, Target International School</span>
+              </div>
+              <img class="fikr-logo" src="images/loyiha-4.webp" alt="Target International School logotipi"
+                   width="640" height="640" loading="lazy" decoding="async">
+            </figcaption>
+          </figure>
+
+          <figure class="karta fikr">
+            <div class="yulduzlar" role="img" aria-label="5 balldan 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            </div>
+            <blockquote>Oylik ish haqini hisoblash har oy ikki kunlik ish edi, xatolar ham bo‘lib turardi. Tizim ishga tushgandan keyin bu yarim kunga qisqardi.</blockquote>
+            <figcaption>
+              <div class="fikr-kim">
+                <strong>Davron Iskandarov</strong>
+                <span>Asoschi, Noor International School</span>
+              </div>
+              <img class="fikr-logo" src="images/loyiha-5.webp" alt="Noor International School logotipi"
+                   width="640" height="640" loading="lazy" decoding="async">
+            </figcaption>
+          </figure>
+
+          <figure class="karta fikr">
+            <div class="yulduzlar" role="img" aria-label="5 balldan 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"/></svg>
+            </div>
+            <blockquote>Ta’minot bo‘limi qoldiqni aniq bilmay buyurtma berardi — ba’zan ortiqcha, ba’zan yetmay qolardi. Hozir qoldiq real vaqtda ko‘rinadi, buyurtmani aniq beramiz.</blockquote>
+            <figcaption>
+              <div class="fikr-kim">
+                <strong>Abduvohid Davlatov</strong>
+                <span>Asoschi, Uzcolor Premium Paints</span>
+              </div>
+              <img class="fikr-logo" src="images/loyiha-6.webp" alt="Uzcolor Premium Paints logotipi"
+                   width="640" height="640" loading="lazy" decoding="async">
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= ALOQA ========================= -->
+    <section class="bolim" id="aloqa">
+      <div class="wrap wrap-tor">
+        <h2>Keling, gaplashamiz</h2>
+        <p class="note note-tepa">Qisqacha yozib qoldiring — bir ish kuni ichida bog‘lanaman.</p>
+
+        <form class="forma" id="aloqa-forma" novalidate>
+          <div class="maydon">
+            <label for="f-ism">Ism va familiya <span aria-hidden="true">*</span></label>
+            <input type="text" id="f-ism" name="ism" required autocomplete="name"
+                   minlength="7" placeholder="Masalan: Aziz Karimov">
+            <p class="xato" id="xato-ism" hidden>Ism va familiyangizni to‘liq yozing (kamida 7 ta harf)</p>
+          </div>
+
+          <div class="maydon">
+            <label for="f-tel">Telefon <span aria-hidden="true">*</span></label>
+            <div class="tel-quti">
+              <span class="tel-old" aria-hidden="true">+998</span>
+              <input type="tel" id="f-tel" name="telefon_raqam" required
+                     autocomplete="tel-national" inputmode="numeric"
+                     maxlength="12" placeholder="90 123 45 67"
+                     aria-describedby="xato-tel">
+            </div>
+            <p class="xato" id="xato-tel" hidden>To‘g‘ri O‘zbekiston raqamini kiriting: 9 ta raqam</p>
+          </div>
+
+          <div class="maydon maydon-keng">
+            <label for="f-biznes">Biznesingiz sohasi <span aria-hidden="true">*</span></label>
+            <select id="f-biznes" name="biznes" required>
+              <option value="" selected disabled>Sohani tanlang</option>
+              <option>Savdo — do‘kon, market</option>
+              <option>Ulgurji savdo va distribyutsiya</option>
+              <option>Ta’lim — maktab, o‘quv markazi</option>
+              <option>Ishlab chiqarish</option>
+              <option>Qurilish va ta’mirlash</option>
+              <option>Logistika va yetkazib berish</option>
+              <option>Umumiy ovqatlanish — restoran, kafe</option>
+              <option>Tibbiyot — klinika, laboratoriya</option>
+              <option>Xizmat ko‘rsatish — salon, servis</option>
+              <option>Ko‘chmas mulk</option>
+              <option>Boshqa</option>
+            </select>
+            <p class="xato" id="xato-biznes" hidden>Sohani tanlang</p>
+          </div>
+
+          <div class="maydon maydon-keng">
+            <label for="f-xabar">Qaysi jarayon ko‘p vaqt olyapti? <span aria-hidden="true">*</span></label>
+            <textarea id="f-xabar" name="xabar" rows="4" required minlength="10"
+                      placeholder="Qisqacha yozing — hozir qanday ishlayapti va nima qiyinchilik tug‘dirmoqda."></textarea>
+            <p class="xato" id="xato-xabar" hidden>Qisqacha yozib qoldiring (kamida 10 ta belgi)</p>
+          </div>
+
+          <!-- Spam-botlar uchun tuzoq maydon: odam buni ko‘rmaydi -->
+          <div class="tuzoq" aria-hidden="true">
+            <label for="f-sayt">Saytingiz</label>
+            <input type="text" id="f-sayt" name="sayt" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="forma-past">
+            <button type="submit" class="btn-qora" id="forma-tugma">
+              <span class="tugma-matn">Yuborish</span>
+              <svg class="tugma-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </button>
+            <p class="holat" id="forma-holat" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <p class="yoki">yoki to‘g‘ridan-to‘g‘ri</p>
+
+        <div class="actions actions-markaz">
+          <a class="btn btn-primary" href="tel:+998332973030">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +998 33 297 30 30
+          </a>
+          <a class="btn btn-ghost" href="https://t.me/bahodirlapasovapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1 1.4 11.6c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></svg>
+            @bahodirlapasovapp
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="futer">
+    <div class="wrap futer-ichi">
+      <span>Toshkent, O‘zbekiston</span>
+      <span>© <span id="yil">2026</span> Bahodir Lapasov</span>
+    </div>
+  </footer>
+</body>
+</html>

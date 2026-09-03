@@ -1,0 +1,18 @@
+Saytdagi barcha rasmlar WebP formatida. Asl PNG/JPG fayllar bu papkada
+saqlanmaydi — konvertatsiya qilingandan keyin o‘chiriladi.
+
+Ishlatilayotgan fayllar:
+
+  bahodir-fonsiz.webp — hero bo‘limidagi shaxsiy rasm, FONI OLIB TASHLANGAN
+                        (shaffof). Yangi rasm qo‘ysangiz, uning ham foni
+                        shaffof bo‘lishi kerak.
+  loyiha-1.webp … loyiha-6.webp — loyiha va mijoz logotiplari, 640x640 px.
+  og.jpg              — ijtimoiy tarmoqlarda ulashilganda ko‘rinadigan rasm
+                        (og:image). Bu bittasi JPG bo‘lib qoladi.
+
+Nomlar aynan shunday bo‘lishi kerak (kichik harflar bilan).
+Boshqa nom qo‘ymoqchi bo‘lsangiz, index.html dagi src="..." qismini
+o‘zgartiring — o‘lchamlar (width/height) ham to‘g‘ri bo‘lishi shart.
+
+Rasm qo‘yilmaguncha sayt o‘sha joyda chiziqli bo‘sh joy ko‘rsatib turadi —
+rasm qo‘shilishi bilan u avtomatik yo‘qoladi.

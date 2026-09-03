@@ -1,0 +1,931 @@
+/* ===================== RANG SXEMALARI ===================== */
+
+/* To‘q mavzu */
+:root{
+  --bg:#0d0f16;
+  --bg-soft:#12151f;
+  --bg-alt:#161a26;
+  --line:#252a3a;
+  --fg:#f2f4fb;
+  --fg-soft:#c9cfe2;
+  --muted:#8e97b3;
+  --accent:#8aa0ff;
+  --accent-hover:#a4b6ff;
+  --on-accent:#0d0f16;
+  --accent-dim:rgba(138,160,255,.12);
+  --accent-line:rgba(138,160,255,.28);
+  --accent-line-2:rgba(138,160,255,.22);
+  --accent-line-3:rgba(138,160,255,.40);
+  --nav-bg:rgba(13,15,22,.82);
+  --grid:#1d2130;
+  --glow:rgba(138,160,255,.10);
+  --joy-chiziq:rgba(138,160,255,.06);
+  --joy-matn:#6d7590;
+
+  /* Hero uchun alohida ranglar */
+  --hero-bg:#0d0f16;
+  --blob:#39468a;
+  --qora:#f2f4fb;        /* to‘q mavzuda "qora" tugma oq bo‘ladi */
+  --qora-matn:#0d0f16;
+  --qora-hover:#ffffff;
+  --lenta-bg:#12151f;
+
+  /* Header / footer / mijozlar lentasi — tanadan ajralib turadigan panel */
+  /* Rangi hero'dagi blob bilan bir xil — sayt yaxlit ko‘rinadi */
+  --panel-bg:#39468a;
+  --panel-fg:#f2f4fb;
+  --panel-muted:#bfc7dd;
+  --panel-line:#5566b8;
+  --panel-accent:#bdc9f7;
+  --panel-toldirilgan:#f2f4fb;      /* faol tugma foni */
+  --panel-toldirilgan-matn:#131826; /* faol tugma matni */
+  --yulduz:#f5a524;
+
+  --wrap:1140px;
+}
+
+/* Yorug‘ mavzu — referens dizayn ranglari */
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f4f5fc;
+    --bg-soft:#ebeef9;
+    --bg-alt:#ffffff;
+    --line:#e0e4f3;
+    --fg:#0c0d12;
+    --fg-soft:#3a3f52;
+    --muted:#626884;
+    --accent:#4359d9;
+    --accent-hover:#3243b8;
+    --on-accent:#ffffff;
+    --accent-dim:rgba(67,89,217,.10);
+    --accent-line:rgba(67,89,217,.26);
+    --accent-line-2:rgba(67,89,217,.20);
+    --accent-line-3:rgba(67,89,217,.40);
+    --nav-bg:rgba(239,241,251,.88);
+    --grid:#e6e9f7;
+    --glow:rgba(67,89,217,.08);
+    --joy-chiziq:rgba(67,89,217,.06);
+    --joy-matn:#9aa1bb;
+    --hero-bg:#eff1fb;
+    --blob:#a9b8f2;
+    --qora:#0d0d10;
+    --qora-matn:#ffffff;
+    --qora-hover:#26262e;
+    --lenta-bg:#f7f8fd;
+    /* Header / footer / mijozlar lentasi — to‘q panel, sahifa esa yorug‘ */
+    --panel-bg:#101527;
+    --panel-fg:#f4f6fd;
+    --panel-muted:#9aa4c2;
+    --panel-line:#242c44;
+    --panel-accent:#8aa0ff;
+    --panel-toldirilgan:#ffffff;
+    --panel-toldirilgan-matn:#101527;
+    --yulduz:#c07400;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f4f5fc;
+  --bg-soft:#ebeef9;
+  --bg-alt:#ffffff;
+  --line:#e0e4f3;
+  --fg:#0c0d12;
+  --fg-soft:#3a3f52;
+  --muted:#626884;
+  --accent:#4359d9;
+  --accent-hover:#3243b8;
+  --on-accent:#ffffff;
+  --accent-dim:rgba(67,89,217,.10);
+  --accent-line:rgba(67,89,217,.26);
+  --accent-line-2:rgba(67,89,217,.20);
+  --accent-line-3:rgba(67,89,217,.40);
+  --nav-bg:rgba(239,241,251,.88);
+  --grid:#e6e9f7;
+  --glow:rgba(67,89,217,.08);
+  --joy-chiziq:rgba(67,89,217,.06);
+  --joy-matn:#9aa1bb;
+  --hero-bg:#eff1fb;
+  --blob:#a9b8f2;
+  --qora:#0d0d10;
+  --qora-matn:#ffffff;
+  --qora-hover:#26262e;
+  --lenta-bg:#f7f8fd;
+    /* Header / footer / mijozlar lentasi — to‘q panel, sahifa esa yorug‘ */
+  --panel-bg:#101527;
+  --panel-fg:#f4f6fd;
+  --panel-muted:#9aa4c2;
+  --panel-line:#242c44;
+  --panel-accent:#8aa0ff;
+  --panel-toldirilgan:#ffffff;
+  --panel-toldirilgan-matn:#101527;
+  --yulduz:#c07400;
+}
+
+/* ===================== ASOSIY SOZLAMALAR ===================== */
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* Klaviatura bilan yurganda fokus aniq ko‘rinsin
+   (sichqoncha bilan bosilganda chiqmaydi) */
+:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:3px;
+  border-radius:6px;
+}
+.btn-qora:focus-visible,
+.doira:focus-visible{outline-offset:4px}
+/* To‘q panel ustida fokus konturi ochroq rangda bo‘lsin */
+.nav a:focus-visible,
+.nav-cta:focus-visible,
+.mavzu-tugma:focus-visible,
+.futer a:focus-visible{outline:3px solid var(--panel-accent);outline-offset:4px}
+
+/* Klaviatura foydalanuvchisi uchun "asosiy qismga o‘tish" havolasi */
+.otkazish{
+  position:absolute;left:16px;top:-60px;z-index:50;
+  background:var(--accent);color:#fff;
+  padding:12px 20px;border-radius:0 0 10px 10px;
+  text-decoration:none;font-weight:600;font-size:15px;
+  transition:top .15s ease;
+}
+.otkazish:focus{top:0}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+
+  /* Sahifani chetidan tortib cho‘zish (rubber-band) butunlay o‘chirilgan —
+     tepaga ham, pastga ham cho‘zilmaydi. */
+  overscroll-behavior:none;
+
+  /* Zaxira: eski brauzerlarda cho‘zilish baribir ishlasa, orqada shu rang
+     ko‘rinadi. Header ham, futer ham aynan shu rangda. */
+  background:var(--panel-bg);
+}
+body{overscroll-behavior:none}
+
+/* Yopishib turuvchi header bo‘lim tepasini yopib qolmasligi uchun.
+   Balandlik ekran o‘lchamiga qarab o‘zgaradi, JS uni aniq o‘lchab qo‘yadi. */
+:root{--nav-balandligi:83px;--lenta-balandligi:127px}
+section[id],
+main[id]{scroll-margin-top:calc(var(--nav-balandligi) + 18px)}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Poppins,ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;
+  transition:background-color .2s ease, color .2s ease;
+}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.wrap-tor{max-width:720px;text-align:center}
+
+/* ===================== NAVIGATSIYA ===================== */
+.nav{
+  position:sticky;top:0;z-index:20;
+  /* Sahifadan ajralib turadigan to‘q panel */
+  background:var(--panel-bg);
+  border-bottom:1px solid var(--panel-line);
+}
+.nav-ichi{display:flex;align-items:center;justify-content:space-between;height:82px;gap:20px}
+
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  color:var(--panel-fg);text-decoration:none;
+  font-weight:700;font-size:20px;letter-spacing:-.01em;
+  flex:none;
+}
+.nav-belgi{width:28px;height:28px;fill:var(--panel-accent);flex:none}
+.nav-ism{white-space:nowrap}
+
+/* O‘rtadagi linklar */
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-links a{
+  color:var(--panel-fg);text-decoration:none;
+  font-size:15px;font-weight:500;
+  padding:9px 18px;border-radius:999px;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:background-color .15s ease, color .15s ease;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--panel-accent)}
+
+/* Faol bo‘lim — "Bog‘lanish" tugmasi bilan bir xil to‘ldirilgan ko‘rinish.
+   Yorug‘ mavzuda qora fon + oq matn, to‘q mavzuda teskarisi. */
+.nav-links a.faol{
+  background:var(--panel-toldirilgan);
+  color:var(--panel-toldirilgan-matn);
+  font-weight:600;
+}
+.nav-links a.faol:hover{color:var(--panel-toldirilgan-matn)}
+
+/* Nuqta faqat faol bo‘limda ko‘rinadi (scroll paytida JS almashtiradi) */
+.nuqta{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none;display:none}
+.nav-links a.faol .nuqta{display:block}
+
+/* O‘ng tomon */
+.nav-ong{display:flex;align-items:center;gap:12px;flex:none}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;
+  border:1.5px solid var(--panel-fg);
+  border-radius:999px;
+  color:var(--panel-fg);text-decoration:none;
+  font-size:15px;font-weight:500;
+  white-space:nowrap;
+  transition:background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.nav-cta svg{width:15px;height:15px}
+.nav-cta:hover{background:var(--panel-toldirilgan);color:var(--panel-toldirilgan-matn);border-color:var(--panel-toldirilgan)}
+/* Aloqa bo‘limiga yetganda tugma to‘ldirilgan holatga o‘tadi */
+.nav-cta.faol{
+  background:var(--panel-toldirilgan);
+  color:var(--panel-toldirilgan-matn);
+  border-color:var(--panel-toldirilgan);
+}
+
+/* Mavzu almashtirish tugmasi */
+/* Mavzu tugmasi ataylab boshqacha ko‘rinadi: yonidagi «Bog‘lanish»
+   konturli va oq, bu esa to‘ldirilgan va aksent rangda — chalkashmaydi. */
+.mavzu-tugma{
+  width:42px;height:42px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  border:0;
+  background:var(--panel-accent);
+  color:var(--panel-bg);
+  cursor:pointer;flex:none;
+  box-shadow:0 0 0 4px rgba(255,255,255,.10);
+  transition:background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.mavzu-tugma:hover{
+  transform:rotate(-18deg);
+  box-shadow:0 0 0 6px rgba(255,255,255,.16);
+}
+.mavzu-tugma:active{transform:rotate(-18deg) scale(.94)}
+.mavzu-tugma svg{width:18px;height:18px}
+.ikon-quyosh{display:block}
+.ikon-oy{display:none}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]) .ikon-quyosh{display:none}
+  :root:not([data-theme="dark"]) .ikon-oy{display:block}
+}
+:root[data-theme="light"] .ikon-quyosh{display:none}
+:root[data-theme="light"] .ikon-oy{display:block}
+:root[data-theme="dark"] .ikon-quyosh{display:block}
+:root[data-theme="dark"] .ikon-oy{display:none}
+
+/* ========================= HERO ========================= */
+/* Bosh sahifada birinchi ekran aynan mijozlar lentasi bilan tugaydi:
+   nav + hero + lenta = ekran balandligi. Balandliklarni JS o‘lchab beradi. */
+.hero{
+  background:var(--hero-bg);
+  padding:40px 0 90px;
+  display:flex;
+  align-items:center;
+  /* Blob rotate(-7deg) bilan burilgani uchun chegaradan bir necha piksel
+     chiqadi — faqat gorizontal bo‘yicha kesamiz (vertikal ochiq qoladi) */
+  overflow-x:clip;
+  min-height:calc(100vh  - var(--nav-balandligi) - var(--lenta-balandligi));
+  min-height:calc(100svh - var(--nav-balandligi) - var(--lenta-balandligi));
+}
+.hero > .wrap{width:100%}
+.hero-ichi{
+  display:grid;
+  grid-template-columns:1fr 480px;
+  gap:40px;
+  align-items:center;
+}
+
+/* Ulkan ism */
+h1 span{display:block}
+h1{
+  font-size:clamp(48px,8.5vw,104px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  font-weight:700;
+  text-transform:uppercase;
+  margin:8px 0 14px;
+}
+
+.role{
+  color:var(--fg-soft);
+  font-size:clamp(17px,1.8vw,22px);
+  font-weight:400;
+  margin-bottom:34px;
+}
+.role span{margin:0 6px;color:var(--muted)}
+
+/* Hero'dagi asosiy va’da — mijoz nima olishini shu yerdan biladi */
+.vada{
+  color:var(--fg-soft);
+  font-size:clamp(16px,1.4vw,18px);
+  line-height:1.6;
+  max-width:52ch;
+  margin:-14px 0 32px;
+}
+
+/* Qora pill tugma */
+.btn-qora{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--qora);
+  color:var(--qora-matn);
+  text-decoration:none;
+  font-size:16px;font-weight:500;
+  padding:16px 32px;
+  border-radius:999px;
+  transition:background-color .15s ease, transform .15s ease;
+}
+.btn-qora svg{width:16px;height:16px}
+.btn-qora:hover{background:var(--qora-hover);transform:translateY(-2px)}
+
+/* Statistika + ijtimoiy tarmoqlar — ikki qatorda, chapga tekislangan */
+.hero-past{
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:22px;
+  margin-top:48px;
+}
+.statlar{
+  display:flex;flex-wrap:wrap;
+  gap:14px 34px;
+}
+.stat{display:flex;align-items:baseline;gap:10px}
+.stat strong{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.stat span{color:var(--fg-soft);font-size:15.5px}
+.ijtimoiy{display:flex;gap:11px}
+.doira{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--qora);color:var(--qora-matn);
+  text-decoration:none;
+  transition:background-color .15s ease, transform .15s ease;
+}
+.doira svg{width:18px;height:18px}
+.doira:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+
+/* Hero rasmi — ostida ko‘k "blob" shakl */
+.hero-rasm{
+  position:relative;
+  width:100%;              /* bolalari absolute bo‘lgani uchun kenglik aniq berilishi shart */
+  aspect-ratio:1/1;
+  max-width:480px;
+  margin-left:auto;
+}
+/* Orqadagi ko‘k organik shakl */
+.hero-rasm .blob{
+  position:absolute;
+  inset:14% -3% -4% -3%;
+  background:var(--blob);
+  border-radius:62% 38% 44% 56% / 48% 42% 58% 52%;
+  transform:rotate(-7deg);
+}
+/* Fonsiz rasm blobning ustida turadi: boshi tepasidan chiqadi,
+   pastki kesilgan qirrasi esa ko‘k shakl ichida qolib ko‘rinmaydi */
+.hero-rasm img{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  width:84%;
+  height:82%;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:drop-shadow(0 14px 26px rgba(12,13,18,.14));
+  /* Rasm pastda tekis kesilgan qirra bilan tugaydi — uni asta so‘ndiramiz,
+     shunda gavda ko‘k shakl ichida eriydi va tashqariga chiqmaydi */
+  -webkit-mask-image:linear-gradient(to bottom, #000 64%, rgba(0,0,0,.28) 88%, transparent 100%);
+  mask-image:linear-gradient(to bottom, #000 64%, rgba(0,0,0,.28) 88%, transparent 100%);
+}
+
+/* ==================== MIJOZLAR LENTASI ==================== */
+/* Mijozlar lentasi — header/footer bilan bir xil to‘q panel.
+   Matn yo‘q: logotiplarning o‘zi gapiradi. */
+.lenta{
+  background:var(--panel-bg);
+  border-bottom:1px solid var(--panel-line);
+}
+.lenta-ichi{
+  display:flex;align-items:center;justify-content:center;
+  gap:26px;flex-wrap:wrap;
+  padding-block:26px;
+}
+.lenta img{
+  height:74px;width:74px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid var(--panel-line);
+  transition:transform .18s ease;
+}
+.lenta img:hover{transform:translateY(-3px)}
+
+/* ===================== TEXNOLOGIYA CHIPLARI ===================== */
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.stack-kichik{margin:14px 0 0}
+.chip{
+  font-size:13px;color:var(--muted);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:5px 12px;
+  background:var(--bg-alt);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+/* ===================== TUGMALAR ===================== */
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.actions-markaz{justify-content:center;margin-top:22px}
+.actions-markaz .btn{flex:0 1 260px}
+.btn{
+  flex:1 1 200px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:500;
+  font-size:15.5px;
+  border:1px solid var(--line);
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-primary{background:var(--qora);color:var(--qora-matn);border-color:var(--qora)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--qora-hover);border-color:var(--qora-hover)}
+.btn-ghost{background:var(--bg-alt);color:var(--fg)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent)}
+.note{
+  margin-top:20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14.5px;
+}
+
+/* ===================== BO‘LIMLAR ===================== */
+.bolim{padding:88px 0}
+.bolim-alt{background:var(--bg-soft);border-block:1px solid var(--line)}
+.bolim-yorliq{
+  color:var(--accent);
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;margin-bottom:10px;
+}
+.bolim h2{
+  font-size:clamp(28px,4.5vw,40px);
+  letter-spacing:-.025em;
+  font-weight:700;
+  margin-bottom:40px;
+}
+.wrap-tor h2{margin-bottom:0}
+
+/* ===================== KARTALAR SETKASI ===================== */
+.setka{display:grid;gap:20px}
+.setka-3{grid-template-columns:repeat(3,1fr)}
+.karta{
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px 24px;
+  transition:transform .18s ease, border-color .18s ease;
+}
+.karta:hover{transform:translateY(-3px);border-color:var(--accent-line-3)}
+.karta h3{font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.karta p{color:var(--muted);font-size:15px}
+.ikon{
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:12px;
+  background:var(--accent-dim);
+  border:1px solid var(--accent-line-2);
+  color:var(--accent);
+  margin-bottom:18px;
+}
+.ikon svg{width:22px;height:22px}
+
+/* ===================== JARAYON QADAMLARI ===================== */
+.qadamlar{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  list-style:none;
+  counter-reset:none;
+}
+.qadam{
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px 24px;
+  position:relative;
+}
+.qadam-raqam{
+  display:inline-block;
+  font-size:13px;font-weight:700;letter-spacing:.08em;
+  color:var(--accent);
+  background:var(--accent-dim);
+  border:1px solid var(--accent-line-2);
+  border-radius:8px;
+  padding:4px 10px;
+  margin-bottom:16px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.qadam h3{font-size:17.5px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.qadam p{color:var(--muted);font-size:14.8px}
+
+/* Narx ishorasi — mos kelmaydigan murojaatlarni oldindan filtrlaydi */
+.narx{
+  margin-top:12px;padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--fg) !important;
+  font-size:14.5px;
+}
+.narx strong{font-weight:700}
+
+/* ===================== LOYIHA KARTALARI ===================== */
+.karta-loyiha{padding:0;overflow:hidden;display:flex;flex-direction:column}
+/* Rasmlar kvadrat (640x640) bo‘lgani uchun joy ham kvadrat —
+   shunda rasm butun maydonni to‘liq qoplaydi va deyarli kesilmaydi */
+.loyiha-rasm{
+  aspect-ratio:1/1;
+  background:var(--bg-soft);
+  border-bottom:1px solid var(--line);
+}
+.loyiha-rasm img{width:100%;height:100%;object-fit:cover;object-position:center}
+.karta-matn{padding:22px 24px 26px}
+
+/* Loyiha natijasi — raqamli dalil, kartaning eng muhim qatori */
+.natija{
+  display:flex;align-items:flex-start;gap:9px;
+  margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--fg);
+  font-size:14.5px;
+  font-weight:500;
+  line-height:1.5;
+}
+.natija-belgi{
+  color:var(--accent);
+  font-weight:700;
+  flex:none;
+  line-height:1.45;
+}
+/* Shablon matni — to‘ldirilmaganini ko‘rsatib turadi */
+.natija em{font-style:italic;color:var(--muted);font-weight:400}
+
+/* ===================== MIJOZ FIKRLARI ===================== */
+.fikr{
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+  gap:18px;
+  margin:0;
+}
+
+/* Baho yulduzchalari — rangi mavzuga qarab o‘zgaradi.
+   Yorug‘ mavzuda oq karta ustida ochiq sariq ko‘rinmaydi, shuning uchun to‘qroq. */
+.yulduzlar{display:flex;gap:3px;color:var(--yulduz)}
+.yulduzlar svg{width:17px;height:17px}
+.fikr blockquote{
+  margin:0;
+  font-size:16px;
+  line-height:1.65;
+  color:var(--fg-soft);
+}
+
+.fikr figcaption{
+  display:flex;align-items:center;gap:14px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.fikr-kim{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.fikr-kim strong{font-size:15px;font-weight:600}
+.fikr-kim span{font-size:13.5px;color:var(--muted)}
+/* Kompaniya logotipi — ism yonida, kichik kvadrat */
+.fikr-logo{
+  width:42px;height:42px;flex:none;
+  border-radius:10px;
+  object-fit:cover;
+  border:1px solid var(--line);
+}
+
+/* Rasm hali qo‘yilmagan bo‘lsa — chiroyli joy egallab turadi */
+.rasm-joy.bosh img{display:none}
+.rasm-joy.bosh{
+  display:flex;align-items:center;justify-content:center;
+  background:
+    repeating-linear-gradient(45deg, var(--joy-chiziq) 0 12px, transparent 12px 24px),
+    var(--bg-soft);
+}
+.hero-rasm.bosh{border-radius:56% 44% 48% 52% / 50% 46% 54% 50%}
+.rasm-joy.bosh::after{
+  content:attr(data-placeholder);
+  color:var(--joy-matn);
+  font-size:13px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-align:center;
+  padding:0 16px;
+  position:relative;
+}
+
+/* ===================== ALOQA FORMASI =====================
+   Bo‘lim ataylab ixcham: sahifa tagiga tushganda «Keling, gaplashamiz»
+   sarlavhasi ham, futer ham bir ekranga sig‘adi. */
+#aloqa{padding:40px 0 34px}
+.note-tepa{margin-top:10px;margin-bottom:18px}
+
+.forma{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 18px;
+  text-align:left;
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px 26px;
+}
+.maydon-keng{grid-column:1 / -1}
+.maydon{display:flex;flex-direction:column;gap:8px}
+.maydon label{
+  font-size:14.5px;font-weight:500;color:var(--fg);
+}
+.maydon label span{color:var(--accent)}
+.maydon input,
+.maydon textarea,
+.maydon select{
+  font-family:inherit;
+  /* 16px dan kichik bo‘lsa, iOS Safari maydonga bosilganda sahifani zumlaydi */
+  font-size:16px;
+  color:var(--fg);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:13px 16px;
+  width:100%;
+  transition:border-color .15s ease, background-color .15s ease;
+}
+.maydon textarea{resize:vertical;min-height:80px;line-height:1.5}
+.maydon input::placeholder,
+.maydon textarea::placeholder{color:var(--joy-matn)}
+.maydon input:hover,
+.maydon textarea:hover,
+.maydon select:hover{border-color:var(--accent-line)}
+.maydon input:focus,
+.maydon textarea:focus,
+.maydon select:focus{border-color:var(--accent);outline:none}
+.maydon input:focus-visible,
+.maydon textarea:focus-visible,
+.maydon select:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+
+/* ── Telefon: +998 qismi alohida, o‘chirib bo‘lmaydi ── */
+.tel-quti{
+  display:flex;align-items:stretch;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  transition:border-color .15s ease;
+}
+.tel-quti:hover{border-color:var(--accent-line)}
+.tel-quti:focus-within{border-color:var(--accent)}
+.tel-quti:focus-within:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:1px}
+.tel-old{
+  display:flex;align-items:center;
+  padding:13px 0 13px 16px;
+  font-size:16px;font-weight:500;
+  color:var(--fg);
+  border-right:1px solid var(--line);
+  padding-right:12px;
+  margin-right:2px;
+  user-select:none;
+  flex:none;
+}
+.tel-quti input{
+  border:0;border-radius:0;background:transparent;
+  padding-left:12px;
+  letter-spacing:.02em;
+}
+.tel-quti input:focus,
+.tel-quti input:focus-visible{outline:none;border:0}
+
+/* ── Tanlov ro‘yxati ── */
+.maydon select{
+  appearance:none;-webkit-appearance:none;
+  color:var(--fg);
+  background-color:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:13px 44px 13px 16px;
+  width:100%;
+  cursor:pointer;
+  transition:border-color .15s ease;
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23626884' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 15px center;
+  background-size:18px 18px;
+}
+:root[data-theme="dark"] .maydon select{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238e97b3' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .maydon select{
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238e97b3' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+}
+/* Hali tanlanmagan holat — placeholder rangida */
+.maydon select:invalid{color:var(--joy-matn)}
+.maydon select option{color:var(--fg);background:var(--bg-alt)}
+
+/* Xato holati */
+.maydon input[aria-invalid="true"],
+.maydon textarea[aria-invalid="true"],
+.maydon select[aria-invalid="true"]{border-color:#d64545}
+.tel-quti:has(input[aria-invalid="true"]){border-color:#d64545}
+.xato{color:#d64545;font-size:13.5px;font-weight:500}
+:root[data-theme="dark"] .xato,
+:root:not([data-theme="light"]) .xato{color:#ff8a8a}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]) .xato{color:#c33a3a}
+}
+:root[data-theme="light"] .xato{color:#c33a3a}
+
+/* Spam tuzog‘i — ko‘rinmaydi, lekin display:none emas (botlar to‘ldirsin) */
+.tuzoq{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.forma-past{
+  grid-column:1 / -1;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  margin-top:4px;
+}
+.forma-past .btn-qora{border:0;cursor:pointer;font-family:inherit}
+.forma-past .btn-qora[disabled]{opacity:.6;cursor:progress;transform:none}
+.tugma-ok{width:16px;height:16px}
+
+.holat{font-size:14.5px;font-weight:500;margin:0}
+.holat.muvaffaqiyat{color:#1f8b57}
+.holat.xato-holat{color:#c33a3a}
+:root[data-theme="dark"] .holat.muvaffaqiyat{color:#5fd39a}
+:root[data-theme="dark"] .holat.xato-holat{color:#ff8a8a}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .holat.muvaffaqiyat{color:#5fd39a}
+  :root:not([data-theme="light"]) .holat.xato-holat{color:#ff8a8a}
+}
+
+.yoki{
+  color:var(--muted);font-size:14px;
+  margin:18px 0 12px;
+  display:flex;align-items:center;gap:16px;
+}
+.yoki::before,.yoki::after{
+  content:"";flex:1;height:1px;background:var(--line);
+}
+
+/* ===================== FUTER ===================== */
+.futer{
+  background:var(--panel-bg);
+  border-top:1px solid var(--panel-line);
+  padding:20px 0;
+}
+.futer-ichi{
+  color:var(--panel-fg);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.01em;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* ===================== MOSLASHUVCHANLIK ===================== */
+@media (max-width:1040px){
+  .hero-ichi{grid-template-columns:1fr 380px;gap:28px}
+  .nav-links a{padding:8px 13px;font-size:14px}
+  .nav-ism{font-size:17px}
+}
+@media (max-width:900px){
+  .setka-3{grid-template-columns:repeat(2,1fr)}
+  .qadamlar{grid-template-columns:repeat(2,1fr)}
+  .hero-ichi{grid-template-columns:1fr;gap:36px}
+  .hero-rasm{order:-1;max-width:330px;margin:0 auto}
+  .hero{padding-top:24px}
+}
+
+/* Logotip matni: nav bir qatorda turganda 1000px dan pastda sig‘maydi */
+@media (max-width:1000px){
+  .nav-ism{display:none}
+}
+/* Menyu olib tashlangani uchun joy bo‘shadi — logotip matni ko‘rinadi */
+@media (max-width:880px){
+  .nav-ism{display:inline;font-size:17px}
+}
+@media (max-width:440px){
+  .nav-ism{font-size:14.5px;letter-spacing:-.02em}
+  .nav-belgi{width:24px;height:24px}
+  .nav-logo{gap:7px}
+  .nav-ichi{gap:8px}
+  /* Strelka olib tashlanadi — matnning o‘zi tushunarli, 23px joy bo‘shaydi */
+  .nav-cta{padding:12px 15px;font-size:14px}
+  .nav-cta svg{display:none}
+  .wrap{padding:0 16px}
+}
+/* 360px va past: uchala element sig‘maydi. Mavzu tugmasi yashiriladi —
+   u eng kam zarur element, chunki mavzu baribir qurilma sozlamasiga
+   qarab avtomatik tanlanadi. Logotip nomi va «Bog‘lanish» qoladi. */
+@media (max-width:360px){
+  .nav-ism{font-size:13.5px}
+  .nav-cta{padding:12px 14px;font-size:13.5px}
+  .mavzu-tugma{display:none}
+}
+/* ────────── MOBIL NAV ──────────
+   Bir sahifali saytda scroll — bu navigatsiyaning o‘zi. Menyu kamdan-kam
+   ochiladi, shuning uchun uning o‘rnida doim ko‘rinadigan «Bog‘lanish»
+   tugmasi turadi — saytning asosiy maqsadi shu.
+   Bo‘lim havolalari HTML'da qoladi (desktopda kerak), mobilda yashiriladi. */
+@media (max-width:880px){
+  :root{--nav-balandligi:64px}
+
+  .nav-ichi{height:64px;gap:10px}
+  .nav-links{display:none}
+
+  .nav-ong{gap:10px}
+  .nav-cta{padding:11px 18px;font-size:15px;min-height:44px}
+  .mavzu-tugma{width:44px;height:44px}
+  .doira{width:44px;height:44px}
+}
+
+@media (max-width:600px){
+  .setka-3{grid-template-columns:1fr}
+  .qadamlar{grid-template-columns:1fr}
+  .bolim{padding:64px 0}
+  .hero{padding-bottom:60px}
+  .hero-past{margin-top:38px;gap:18px}
+  .btn{flex:1 1 100%}
+  .actions-markaz .btn{flex:1 1 100%}
+  .lenta-ichi{gap:18px;justify-content:center}
+  .forma{grid-template-columns:1fr;padding:24px 20px;gap:16px}
+  .forma-past{flex-direction:column;align-items:stretch}
+  .forma-past .btn-qora{justify-content:center}
+  .holat{text-align:center}
+}
+@media (max-width:430px){
+  :root{--nav-balandligi:164px}
+  .nav-links a{font-size:13.5px;padding:8px 11px}
+  .nav-links{gap:2px}
+}
+
+/* Past ekranlar (masalan 1280x720 noutbuk): hero ixchamlashadi,
+   shunda lenta baribir birinchi ekranga sig‘adi */
+@media (min-width:901px) and (max-height:840px){
+  .hero{padding:20px 0 28px}
+  .hero-ichi{grid-template-columns:1fr 360px;gap:32px}
+  .hero-rasm{max-width:360px}
+  h1{font-size:clamp(40px,5.6vw,72px)}
+  .vada{margin:-10px 0 24px;font-size:16px}
+  .role{margin-bottom:22px}
+  .hero-past{margin-top:30px}
+  .btn-qora{padding:14px 28px}
+}
+/* Past ekranli noutbuklar: aloqa bo‘limi ixchamlashadi, shunda sahifa
+   tagida «Keling, gaplashamiz» sarlavhasi ham ko‘rinib turadi */
+@media (min-width:901px) and (max-height:960px){
+  #aloqa{padding:26px 0 20px}
+  #aloqa h2{font-size:clamp(24px,2.6vw,31px)}
+  .note-tepa{margin-top:8px;margin-bottom:12px}
+  .forma{padding:18px 20px;gap:10px 16px;border-radius:16px}
+  .maydon{gap:6px}
+  .maydon textarea{min-height:62px}
+  .maydon input,.maydon textarea,.maydon select{padding:10px 14px}
+  .yoki{margin:12px 0 10px}
+  .actions-markaz{margin-top:16px}
+  .futer{padding:14px 0}
+  .futer-ichi{font-size:14px}
+}
+
+/* 800px va undan past — yana bir pog‘ona ixchamroq */
+@media (min-width:901px) and (max-height:800px){
+  #aloqa{padding:20px 0 14px}
+  .forma{padding:16px 18px;gap:9px 14px}
+  .maydon input,.maydon textarea,.maydon select{padding:9px 13px}
+  .maydon textarea{min-height:54px}
+  .maydon label{font-size:13.5px}
+  .yoki{margin:10px 0 8px}
+  .actions-markaz{margin-top:13px}
+  .futer{padding:12px 0}
+}
+
+/* 740px va past — eng ixcham holat */
+@media (min-width:901px) and (max-height:740px){
+  #aloqa{padding:16px 0 12px}
+  #aloqa h2{font-size:clamp(21px,2vw,25px)}
+  .note-tepa{margin-top:6px;margin-bottom:8px;font-size:13.5px}
+  .forma{padding:12px 14px;gap:6px 10px}
+  .maydon{gap:4px}
+  .maydon input,.maydon textarea,.maydon select{padding:8px 12px}
+  .maydon textarea{min-height:42px}
+  .maydon label{font-size:13px}
+  .yoki{margin:8px 0 6px;font-size:13px}
+  .actions-markaz{margin-top:11px}
+  .futer{padding:10px 0}
+  .futer-ichi{font-size:13.5px}
+}
+
+@media (min-width:901px) and (max-height:700px){
+  .hero-ichi{grid-template-columns:1fr 290px}
+  .hero-rasm{max-width:290px}
+  h1{font-size:clamp(36px,4.8vw,58px)}
+  .vada{display:none}
+}
+
+/* Animatsiyani o‘chirgan foydalanuvchilar uchun */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+}

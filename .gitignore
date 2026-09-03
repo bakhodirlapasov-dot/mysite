@@ -1,0 +1,30 @@
+# Maxfiy ma'lumotlar — hech qachon repoga tushmasin
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+
+# macOS tizim fayllari
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Claude Code lokal sozlamalari (shu kompyuterga xos, mutlaq yo'llar bor)
+.claude/settings.local.json
+
+# Ish jarayonidagi vaqtinchalik fayllar
+*.log
+_t*.html
+sayt-*.png
+loyiha-tekshir.png
+loyihalar.png
+h[0-9]-*.png
+v[0-9]-*.png
+spy.png
+forma*.png
+
+# Tahrirlovchi papkalari
+.vscode/
+.idea/
