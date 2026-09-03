@@ -1,0 +1,10 @@
+# GitHub Pages sozlamasi.
+# Bu yerdagi fayllar saytga chiqarilmaydi — repoda turadi, lekin
+# https://...github.io/mysite/ manzilidan ochilmaydi.
+exclude:
+  - apps-script.gs
+  - versiya.sh
+  - RASMLAR-HAQIDA.txt
+  - CLAUDE.md
+  - .gitignore
+  - .claude
