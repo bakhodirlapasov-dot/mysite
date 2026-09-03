@@ -975,8 +975,53 @@ h1{
   .vada{display:none}
 }
 
-/* Animatsiyani o‘chirgan foydalanuvchilar uchun */
+/* ===================== JONLANISH =====================
+   Butun blok "html.animatsiya" ostida turadi. Bu sinf script.js da,
+   sahifa chizilishidan oldin qo‘yiladi — va faqat ikki shart bajarilsa:
+     · brauzerda IntersectionObserver bor
+     · foydalanuvchi harakat kamaytirishni so‘ramagan
+   Sinf yo‘q bo‘lsa (JS o‘chiq, eski brauzer, kam harakat rejimi) —
+   hech narsa yashirilmaydi, sayt oddiy holida to‘liq ko‘rinadi.
+
+   Animatsiya "backwards" bilan ishlaydi, "forwards" bilan emas:
+   tugagach element o‘z odatdagi holatiga qaytadi. Shuning uchun
+   kartaning :hover ko‘tarilishi buzilmaydi. */
+
+@keyframes paydoChiq{
+  from{opacity:0; transform:translateY(14px)}
+  to  {opacity:1; transform:none}
+}
+
+/* Skroll bilan chiqadigan elementlar — ko‘rinmaguncha yashirin */
+html.animatsiya .bolim .bolim-yorliq:not(.korindi),
+html.animatsiya .bolim h2:not(.korindi),
+html.animatsiya .karta:not(.korindi),
+html.animatsiya .qadam:not(.korindi),
+html.animatsiya .sj-band:not(.korindi){opacity:0}
+
+html.animatsiya .korindi{
+  animation:paydoChiq .45s cubic-bezier(.22,.61,.36,1) backwards;
+}
+
+/* Hero — sahifa ochilishida ketma-ket chiqadi.
+   Bu yerda kuzatuvchi kerak emas, elementlar darhol ko‘rinadi. */
+html.animatsiya .hero-matn h1{animation:paydoChiq .5s cubic-bezier(.22,.61,.36,1) backwards}
+html.animatsiya .hero-matn .role{animation:paydoChiq .5s cubic-bezier(.22,.61,.36,1) .07s backwards}
+html.animatsiya .hero-matn .vada{animation:paydoChiq .5s cubic-bezier(.22,.61,.36,1) .14s backwards}
+html.animatsiya .hero-matn .btn-qora{animation:paydoChiq .5s cubic-bezier(.22,.61,.36,1) .21s backwards}
+html.animatsiya .hero-matn .hero-past{animation:paydoChiq .5s cubic-bezier(.22,.61,.36,1) .28s backwards}
+
+/* Animatsiyani o‘chirgan foydalanuvchilar uchun.
+   Yuqoridagi yashirish qoidalari html.animatsiya ga bog‘langan va bu
+   rejimda o‘sha sinf umuman qo‘yilmaydi — ya’ni matn yashirin qolmaydi.
+   Quyidagisi qo‘shimcha kafolat: sinf negadir qo‘yilib qolsa ham
+   hamma narsa ko‘rinadi. */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{transition:none !important;animation:none !important}
+  html.animatsiya .bolim .bolim-yorliq,
+  html.animatsiya .bolim h2,
+  html.animatsiya .karta,
+  html.animatsiya .qadam,
+  html.animatsiya .sj-band{opacity:1 !important}
 }

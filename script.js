@@ -94,6 +94,29 @@ var GA_ID = 'G-SSB57HM1FS';
 })();
 
 
+/* ===================== JONLANISH BAYROG‘I =====================
+   Bu qism ham <head> da, sahifa chizilishidan oldin ishlaydi —
+   shunda matn bir lahza ko‘rinib, keyin yashirinib qolmaydi.
+
+   "animatsiya" sinfi faqat ikki shart bajarilsa qo‘yiladi. Sinf
+   bo‘lmasa, style.css dagi yashirish qoidalari umuman ishlamaydi
+   va sayt hech qanday animatsiyasiz, to‘liq ko‘rinadigan holda
+   qoladi. Ya’ni jonlanish — ustiga qo‘shimcha, shart emas. */
+
+(function () {
+  var kamHarakat = false;
+  try {
+    kamHarakat = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e) {
+    kamHarakat = false; // matchMedia yo‘q bo‘lsa — animatsiyasiz qolgani xavfsizroq
+  }
+
+  if ('IntersectionObserver' in window && !kamHarakat) {
+    document.documentElement.classList.add('animatsiya');
+  }
+})();
+
+
 /* ===================== QOLGAN MAYDA ISHLAR ===================== */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -417,4 +440,70 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+});
+
+
+/* ===================== SKROLLDA PAYDO BO‘LISH =====================
+   Bo‘lim sarlavhalari va kartalar ekranga kirganda yumshoq ko‘tarilib
+   chiqadi. Har element bir marta — yuqoriga qaytganda qayta o‘ynamaydi.
+
+   Bayroq qo‘yilmagan bo‘lsa (JS o‘chiq, eski brauzer, kam harakat
+   rejimi) bu blok umuman ishga tushmaydi va matn oddiy ko‘rinadi. */
+
+document.addEventListener('DOMContentLoaded', function () {
+  var ildiz = document.documentElement;
+  if (!ildiz.classList.contains('animatsiya')) return;
+
+  var TANLOV = [
+    '.bolim .bolim-yorliq',
+    '.bolim h2',
+    '.karta',
+    '.qadam',
+    '.sj-band'
+  ].join(',');
+
+  var elementlar = Array.prototype.slice.call(document.querySelectorAll(TANLOV));
+  if (!elementlar.length) return;
+
+  // Bir qatordagi kartalar ketma-ket chiqsin — ota element bo‘yicha
+  // guruhlab, har biriga kichik kechikish beramiz. 5 tadan keyin
+  // kechikish oshmaydi, aks holda oxirgi karta juda kech chiqadi.
+  var hisob = {};
+  elementlar.forEach(function (el) {
+    var ota = el.parentNode;
+    var kalit = ota ? (ota.className || 'yolgiz') : 'yolgiz';
+    hisob[kalit] = (hisob[kalit] || 0) + 1;
+    var tartib = Math.min(hisob[kalit] - 1, 5);
+    if (tartib > 0) el.style.animationDelay = (tartib * 50) + 'ms';
+  });
+
+  function korsat(el) {
+    el.classList.add('korindi');
+  }
+
+  var kuzatuvchi = new IntersectionObserver(function (yozuvlar, kuz) {
+    yozuvlar.forEach(function (y) {
+      if (!y.isIntersecting) return;
+      korsat(y.target);
+      kuz.unobserve(y.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+
+  elementlar.forEach(function (el) { kuzatuvchi.observe(el); });
+
+  // Xavfsizlik to‘ri: kuzatuvchi negadir ishlamay qolsa, ekranda
+  // turgan matn yashirin qolib ketmasin. Faqat ko‘rinadigan joydagi
+  // elementlar ochiladi — pastdagilar o‘z navbatini kutaveradi.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      elementlar.forEach(function (el) {
+        if (el.classList.contains('korindi')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          korsat(el);
+          kuzatuvchi.unobserve(el);
+        }
+      });
+    }, 1200);
+  });
 });
