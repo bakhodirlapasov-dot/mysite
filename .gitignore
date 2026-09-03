@@ -14,6 +14,9 @@ secrets.*
 # Claude Code lokal sozlamalari (shu kompyuterga xos, mutlaq yo'llar bor)
 .claude/settings.local.json
 
+# Netlify deploy uchun yig'iladigan papka (har safar qaytadan quriladi)
+dist/
+
 # Ish jarayonidagi vaqtinchalik fayllar
 *.log
 _t*.html

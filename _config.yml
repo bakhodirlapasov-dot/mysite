@@ -3,6 +3,7 @@
 # https://...github.io/mysite/ manzilidan ochilmaydi.
 exclude:
   - apps-script.gs
+  - netlify.toml
   - versiya.sh
   - RASMLAR-HAQIDA.txt
   - CLAUDE.md

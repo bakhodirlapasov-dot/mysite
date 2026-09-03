@@ -1,0 +1,17 @@
+# Netlify sozlamasi.
+#
+# Repo ildizida saytga aloqasi bo'lmagan yordamchi fayllar ham turadi
+# (apps-script.gs, versiya.sh, RASMLAR-HAQIDA.txt, CLAUDE.md).
+# Ular ochiq internetga chiqmasligi kerak, shuning uchun deploy oldidan
+# faqat saytning o'zi kerakli fayllari "dist" papkasiga ko'chiriladi.
+#
+# Bu yerda npm ham, freymvork ham ishlatilmaydi — oddiy nusxalash.
+# Yangi fayl qo'shsangiz (masalan yangi rasm papkasi), quyidagi
+# ro'yxatga ham qo'shishni unutmang.
+
+[build]
+  publish = "dist"
+  command = """
+    rm -rf dist && mkdir -p dist && \
+    cp -R index.html style.css script.js favicon.svg robots.txt sitemap.xml images dist/
+  """
