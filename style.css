@@ -618,6 +618,57 @@ h1{
   position:relative;
 }
 
+/* ===================== SAVOL-JAVOB =====================
+   Brauzerning o‘z <details> bloki ishlatilgan — JS kerak emas,
+   klaviatura va ekran o‘quvchi o‘zidan ishlaydi. */
+.sj{display:flex;flex-direction:column;gap:10px;margin-top:34px}
+
+.sj-band{
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  border-radius:14px;
+  transition:border-color .18s ease;
+}
+.sj-band[open]{border-color:var(--accent-line)}
+
+.sj-band summary{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  min-height:44px;
+  padding:17px 20px;
+  cursor:pointer;
+  font-size:16.5px;font-weight:600;line-height:1.45;
+  color:var(--fg);
+  list-style:none;               /* standart uchburchak belgisi olib tashlanadi */
+  transition:color .18s ease;
+}
+.sj-band summary::-webkit-details-marker{display:none}
+.sj-band summary::marker{content:''}
+.sj-band summary:hover{color:var(--accent)}
+.sj-band summary:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:-2px;
+  border-radius:14px;
+}
+
+.sj-ok{
+  width:20px;height:20px;flex:none;
+  color:var(--muted);
+  transition:transform .2s ease, color .18s ease;
+}
+.sj-band[open] .sj-ok{transform:rotate(180deg);color:var(--accent)}
+.sj-band summary:hover .sj-ok{color:var(--accent)}
+
+/* wrap-tor bo‘lim matnini markazga tekislaydi — savol-javob uchun
+   bu noqulay, uzun matn chapdan boshlangani o‘qishga oson */
+.sj{text-align:left}
+.sj-javob{padding:0 20px 19px}
+.sj-javob p{margin:0;color:var(--fg-soft);line-height:1.72;font-size:15.5px}
+
+@media (max-width:520px){
+  .sj-band summary{padding:15px 16px;font-size:15.5px;gap:12px}
+  .sj-javob{padding:0 16px 16px}
+}
+
 /* ===================== ALOQA FORMASI =====================
    Bo‘lim ataylab ixcham: sahifa tagiga tushganda «Keling, gaplashamiz»
    sarlavhasi ham, futer ham bir ekranga sig‘adi. */
