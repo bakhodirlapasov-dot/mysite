@@ -192,6 +192,13 @@ img{max-width:100%;display:block}
   color:var(--panel-fg);text-decoration:none;
   font-weight:700;font-size:20px;letter-spacing:-.01em;
   flex:none;
+  /* Bosish maydoni kamida 44px bo‘lishi uchun — ko‘rinishi
+     o‘zgarmaydi, faqat barmoq tegadigan joy kengayadi.
+     Chapdagi bo‘shliq salbiy margin bilan qaytariladi, aks holda
+     logotip menyu chetidan ichkariga surilib qolardi. */
+  min-height:44px;
+  padding:0 10px;
+  margin-inline:-10px;
 }
 .nav-belgi{width:28px;height:28px;fill:var(--panel-accent);flex:none}
 .nav-ism{white-space:nowrap}
@@ -202,6 +209,7 @@ img{max-width:100%;display:block}
   color:var(--panel-fg);text-decoration:none;
   font-size:15px;font-weight:500;
   padding:9px 18px;border-radius:999px;
+  min-height:44px;  /* planshet ham sensorli qurilma */
   display:inline-flex;align-items:center;gap:7px;
   transition:background-color .15s ease, color .15s ease;
   white-space:nowrap;
@@ -246,7 +254,8 @@ img{max-width:100%;display:block}
 /* Mavzu tugmasi ataylab boshqacha ko‘rinadi: yonidagi «Bog‘lanish»
    konturli va oq, bu esa to‘ldirilgan va aksent rangda — chalkashmaydi. */
 .mavzu-tugma{
-  width:42px;height:42px;
+  /* 44px — sensorli qurilmada eng kichik bosish maydoni */
+  width:44px;height:44px;
   display:flex;align-items:center;justify-content:center;
   border-radius:50%;
   border:0;
@@ -782,7 +791,7 @@ h1{
 .maydon textarea[aria-invalid="true"],
 .maydon select[aria-invalid="true"]{border-color:#d64545}
 .tel-quti:has(input[aria-invalid="true"]){border-color:#d64545}
-.xato{color:#d64545;font-size:13.5px;font-weight:500}
+.xato{color:#d64545;font-size:14px;font-weight:500}
 :root[data-theme="dark"] .xato,
 :root:not([data-theme="light"]) .xato{color:#ff8a8a}
 @media (prefers-color-scheme: light){
@@ -849,9 +858,20 @@ h1{
   .hero{padding-top:24px}
 }
 
-/* Logotip matni: nav bir qatorda turganda 1000px dan pastda sig‘maydi */
-@media (max-width:1000px){
+/* Menyuda 6 ta bo‘lim havolasi bor — ular 621px joy egallaydi.
+   Logotip matni (~180px) bilan birga 1240px dan pastda sig‘masdi va
+   nav gorizontal siljish berardi. Shu oraliqda logotip matni olib
+   tashlanadi va havolalar orasi biroz siqiladi. Belgi (nishon) qoladi. */
+@media (max-width:1320px){
   .nav-ism{display:none}
+  .nav-links{gap:8px}
+  .nav-links a{padding:9px 11px}
+}
+/* 960px dan pastda havolalar hali ko‘rinadi (ular 880px da yashiriladi),
+   lekin joy juda tor — yana bir pog‘ona siqamiz. */
+@media (max-width:960px){
+  .nav-links{gap:5px}
+  .nav-links a{padding:9px 8px;font-size:14.5px}
 }
 /* Menyu olib tashlangani uchun joy bo‘shadi — logotip matni ko‘rinadi */
 @media (max-width:880px){

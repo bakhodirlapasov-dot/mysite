@@ -13,5 +13,5 @@
   publish = "dist"
   command = """
     rm -rf dist && mkdir -p dist && \
-    cp -R index.html style.css script.js favicon.svg robots.txt sitemap.xml images dist/
+    cp -R index.html style.css script.js favicon.svg apple-touch-icon.png robots.txt sitemap.xml images dist/
   """
