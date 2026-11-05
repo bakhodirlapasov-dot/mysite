@@ -62,9 +62,21 @@ Skrinshot yoki o‘lchov g‘alati natija bersa, saytni tuzatishga kirishma —
 avval o‘sha asbob umuman ishlayotganini isbotla. Nazorat namunasi ol:
 o‘zgartirilmagan qismni yoki oldingi versiyani xuddi shu usulda o‘lchab ko‘r.
 Bu loyihada shu tuzoqlarga tushilgan:
-- Brauzer paneli yashirin bo‘lsa sahifa **chizilmaydi** —
-  `IntersectionObserver` ishlamaydi, skrinshot eski kadrda qotadi.
-  `document.hidden` bilan tekshir.
+- Brauzer paneli kadr chizmasligi mumkin — `IntersectionObserver` ishlamaydi,
+  CSS animatsiya qotadi, skrinshot eski kadrda qoladi. **`document.hidden`
+  bunga ishonchli ko‘rsatkich emas** (`false` desa ham kadr chizilmagan).
+  Ishonchlisi: 1 soniyada `requestAnimationFrame` necha marta kelishini sana —
+  ~60 bo‘lishi kerak, 1–2 bo‘lsa muhit yaroqsiz.
+- Nazorat sinovi sinov bilan **bir xil sharoitda** bo‘lsin: sinov iframe
+  ichida bo‘lsa, nazorat kuzatuvchisi ham o‘sha iframe ichida ishga tushsin.
+- Saytda `scroll-behavior:smooth` bor — sinovda `scrollTo()` ham silliq
+  animatsiyaga aylanadi va headless’da oxiriga yetmaydi. Har doim
+  `scrollTo({top, behavior:'instant'})` yoz.
+- Hero balandligi ekranga bog‘liq. Baland oynada (3000px+) u cho‘zilib,
+  barcha bo‘limlarni ekrandan itaradi — bunday surat bo‘limlar haqida
+  hech narsa isbotlamaydi. Bo‘limlarni oddiy 1280×900 oynada tekshir.
+- Animatsiya yoki skrollni ishonchli muhitda tekshirib bo‘lmasa — **isbot
+  to‘qima**, Bahodirdan haqiqiy brauzerda ko‘rishni so‘ra.
 - Headless Chrome kichik `--window-size` da mobil viewport’ni qo‘llamaydi —
   yo‘q siljishni bordek ko‘rsatadi. Mobil o‘lchov uchun `iframe` ishlat.
 - Headless Chrome manzilida `#havola` bo‘lsa bo‘sh rasm qaytaradi.
